@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        /* CSS: Styling and Layout */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .title {
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .bio {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .extra-info {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease;
+            opacity: 0;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-top: 0;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .extra-info.show {
+            max-height: 200px;
+            opacity: 1;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .extra-info ul {
+            list-style: none;
+        }
+
+        .extra-info li {
+            margin-bottom: 8px;
+        }
+
+        .extra-info strong {
+            color: #3b82f6;
+        }
+
+        .btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease, cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HTML: Structure -->
+    <div class="profile-card">
+        <!-- Visual placeholder for a photo, using an emoji for now -->
+        <div class="avatar">👨‍💻</div> 
+        
+        <h1>Your Name</h1>
+        <p class="title">Web Developer / Designer</p>
+        
+        <p class="bio">
+            Hi there! I am a passionate creator who loves building beautiful, functional websites. 
+            I enjoy solving problems using code and always look forward to learning new technologies.
+        </p>
+
+        <button class="btn" id="toggleBtn">Show More Details</button>
+
+        <!-- Hidden section that JS will reveal -->
+        <div class="extra-info" id="moreDetails">
+            <ul>
+                <li>🚀 <strong>Skills:</strong> HTML, CSS, JavaScript, Git</li>
+                <li>🎯 <strong>Interests:</strong> UI/UX Design, Open Source, Gaming</li>
+                <li>📍 <strong>Location:</strong> Earth</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript: Interaction -->
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const moreDetails = document.getElementById('moreDetails');
+
+        toggleBtn.addEventListener('click', () => {
+            // Toggle the visibility class
+            moreDetails.classList.toggle('show');
+
+            // Change button text dynamically based on state
+            if (moreDetails.classList.contains('show')) {
+                toggleBtn.textContent = 'Hide Details';
+            } else {
+                toggleBtn.textContent = 'Show More Details';
+            }
+        });
+    </script>
+</body>
+</html>
